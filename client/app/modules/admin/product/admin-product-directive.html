@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Products</div>
+                <div class="panel-body">
+                    <button type="button" class="btn btn-link"
+                            ng-disabled="vm.new"
+                            ng-click="vm.onAdd()">
+                        <span class="glyphicon glyphicon-plus"></span> Add new product
+                    </button>
+                    <edit-product ng-if="vm.new"
+                                  on-cancelled="vm.onCancelled()"
+                                  on-refreshed="vm.onRefreshed()"></edit-product>
+                </div>
+                <!-- Table -->
+                <table class="table">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-if="!vm.editing" ng-repeat-start="item in vm.products">
+                        <td>{{::item.id}}</td>
+                        <td>{{::item.name}}</td>
+                        <td>{{::item.description}}</td>
+                        <td>{{::item.price}}</td>
+                        <td>
+                            <button class="btn btn-warning"
+                                    ng-disabled="item.id === vm.currentId"
+                                    ng-click="vm.onEdit(item)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button class="btn btn-danger" ng-click="vm.onDelete(item)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr ng-if="item.id === vm.currentId" ng-repeat-end="">
+                        <td colspan="5">
+                            <edit-product product-id="item.id"
+                                          product="vm.productToEdit"
+                                          on-cancelled="vm.onCancelled()"
+                                          on-refreshed="vm.onRefreshed()"></edit-product>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
