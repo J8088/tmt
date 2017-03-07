@@ -1,0 +1,29 @@
+<form name="vm.addTaskForm">
+    <div class="form-group">
+        <label for="taskName">Name</label>
+        <input type="text" class="form-control"
+               id="taskName" name="taskName"
+               ng-model="vm.task.name"
+               placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="taskDescription">Description</label>
+        <input type="text" class="form-control"
+               id="taskDescription" name="taskDescription"
+               ng-model="vm.task.description"
+               placeholder="Description">
+    </div>
+    <div class="form-group">
+        <label for="taskDescription">Status</label>
+        <select class="form-control"
+                id="taskStatus" name="taskStatus"
+                ng-model="vm.task.status" ng-options="status.name for status in vm.statuses">
+            <!--<option value="">&#45;&#45; choose color &#45;&#45;</option>-->
+        </select>
+        <!--<input type="text" class="form-control"-->
+               <!--id="taskStatus" name="taskStatus"-->
+               <!--ng-model="vm.task.status"-->
+               <!--placeholder="Status">-->
+    </div>
+    <button type="button" class="btn btn-default" ng-click="vm.add()">Add</button>
+</form>

@@ -1,36 +1,49 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular.module('jbApp')
-        .factory('contentFactory', contentFactory);
+  angular.module('tmtApp')
+    .factory('contentFactory', contentFactory);
 
-    function contentFactory($http) {
-        var service = {
-            get: get,
-            filterByCategory: filterByCategory
-        };
-        return service;
+  function contentFactory($http) {
+    var service = {
+      add: add,
+      get: getAll,
+      getById: getById,
+      remove: remove
+    };
+    return service;
 
-        function get(params) {
-            var query = ['/a/catalog',
-                params && params.product_id ? '/' + params.product_id + '/product/' : '',
-                params && params.category_id ? '/' + params.category_id + '/category/' : ''].join('');
+    function add(data) {
+      var url = '/a/tasks/add';
 
-            return $http.get(query).then(function (response) {
-                return response.data;
-            });
-        }
-
-        function filterByCategory(categories) {
-            var req = {
-                method: 'POST',
-                url: '/a/catalog/categories/',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: JSON.stringify(categories)
-            };
-            return $http(req);
-        }
+      return $http.post(url, data).then(function (response) {
+        return response.data;
+      });
     }
+
+    function remove(data) {
+      var url = '/a/tasks/delete';
+
+      return $http.post(url, data).then(function (response) {
+        return response.data;
+      });
+    }
+
+    function getAll() {
+      var url = '/a/tasks';
+
+      return $http.get(url).then(function (response) {
+        return response.data;
+      });
+    }
+
+    function getById(params) {
+      var query = ['/a/tasks',
+        params && params.task_id ? '/' + params.task_id : ''].join('');
+
+      return $http.get(query).then(function (response) {
+        return response.data;
+      });
+    }
+  }
 })();

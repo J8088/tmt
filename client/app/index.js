@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jbApp', [
+angular.module('tmtApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',

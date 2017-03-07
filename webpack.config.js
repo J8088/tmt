@@ -2,11 +2,9 @@
 
 var path = require('path');
 
-// var ngAnnotatePlugin = require('ng-annotate-webpack-plugin')
-
 module.exports = {
   context: __dirname,
-  entry: './jb-client/app/app.js',
+  entry: './client/app/app.js',
   output: {
     path: path.join(__dirname, './bundle'),
     publicPath: '/',
@@ -24,10 +22,5 @@ module.exports = {
   resolve: {
     modulesDirectories: ['bower_components', 'node_modules']
   },
-  plugins: [
-    // new ngAnnotatePlugin({
-    //   add: true,
-    //   // other ng-annotate options here
-    // })
-  ]
+  plugins: []
 };

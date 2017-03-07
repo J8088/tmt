@@ -1,0 +1,14 @@
+<table class="table table-hover">
+    <tr ng-repeat="item in vm.tasks">
+        <td>{{::item.name}}</td>
+        <td>{{::item.description}}</td>
+        <td>{{::item.added}}</td>
+        <td>{{::item.finished}}</td>
+        <td>{{::item.status}}</td>
+        <td>
+            <button>
+                <span class="glyphicon glyphicon-remove" ng-click="vm.remove(item)"></span>
+            </button>
+        </td>
+    </tr>
+</table>

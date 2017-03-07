@@ -1,6 +1,6 @@
 {
-  "name": "jbeam",
-  "description": "jBeam",
+  "name": "tmt",
+  "description": "tmt",
   "version": "0.1.0",
   "private": false,
   "author": "",
@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "cross-env DEBUG=cluster node ./jb-server/app.js"
+    "start": ""
   },
   "dependencies": {
     "async": "^2.1.4",

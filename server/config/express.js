@@ -14,7 +14,7 @@ module.exports = function (app, db) {
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
 
-  app.set('clientRoot', path.join(config.root, '/jb-client/dist'));
+  app.set('clientRoot', path.join(config.root, '/client/dist'));
 
   app.use(bodyParser.urlencoded({extended: false}));
   app.use(bodyParser.json({limit: '25mb'}));
@@ -33,8 +33,8 @@ module.exports = function (app, db) {
   }));
 
   //for DEVELOP only
-  app.use('/bower_components', express.static(path.resolve(__dirname + '/../../jb-client/dist/bower_components')));
-  app.use('/', express.static(path.resolve(__dirname + '/../../jb-client/dist')));
+  app.use('/bower_components', express.static(path.resolve(__dirname + '/../../client/dist/bower_components')));
+  app.use('/', express.static(path.resolve(__dirname + '/../../client/dist')));
 
   // app.use('/bundle', express.static(config.root + '/bundle'));
 };

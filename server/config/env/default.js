@@ -11,7 +11,6 @@ module.exports = {
     https: {
         port: false,
 
-        // Paths to key and cert as string
         ssl: {
             key: '',
             cert: '',
@@ -22,24 +21,15 @@ module.exports = {
     db: process.env.MONGOHQ_URL,
     templateEngine: 'swig',
 
-    // The secret should be set to a non-guessable string that
-    // is used to compute a session hash
-    sessionSecret: 'jBeam',
+    sessionSecret: 'tmt',
 
-    // The name of the MongoDB collection to store sessions in
     sessionCollection: 'sessions',
 
     // The session cookie settings
     sessionCookie: {
         path: '/',
         httpOnly: true,
-        // If secure is set to true then it will cause the cookie to be set
-        // only when SSL-enabled (HTTPS) is used, and otherwise it won't
-        // set a cookie. 'true' is recommended yet it requires the above
-        // mentioned pre-requisite.
         secure: false,
-        // Only set the maxAge to null if the cookie shouldn't be expired
-        // at all. The cookie will expunge when the browser is closed.
         maxAge: null
     },
     public: {
@@ -56,26 +46,13 @@ module.exports = {
     },
     clusterSticky: false,
     stickyOptions: {
-        proxy: false, // activate layer 4 patching
-        header: 'x-forwarded-for', // provide here your header containing the users ip
+        proxy: false,
+        header: 'x-forwarded-for',
         num: (process.env.CPU_COUNT || require('os').cpus().length) - 1
     },
-    // The session cookie name
     sessionName: 'connect.sid',
-    // Set bodyParser options
     bodyParser: {
         json: {limit: '100kb'},
         urlencoded: {limit: '100kb', extended: true}
     }
-    // ,
-    // mongoose: {
-    //     uri: 'mongodb://localhost/jbeam',
-    //     options: {
-    //         server: {
-    //             socketOptions: {
-    //                 keepAlive: 1
-    //             }
-    //         }
-    //     }
-    // }
 };

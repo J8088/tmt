@@ -2,14 +2,14 @@
   'use strict';
 
 
-  angular.module('jbApp')
+  angular.module('tmtApp')
     .controller('HomeController', HomeController);
 
   function HomeController($scope) {
     $scope.weblinks = [{
     	name: 'Home Page',
-    	link: 'http://jbeam.com',
-    	info: 'e-market'
+    	link: 'http://tnt.org',
+    	info: 'Task manager'
     }];
   }
 

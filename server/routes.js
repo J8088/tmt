@@ -7,8 +7,8 @@ module.exports = function (app) {
       next();
     });
 
-    app.use('/a/products', require('./a/products'));
-    app.use('/a/product', require('./a/products'));
+    app.use('/a/tasks', require('./a/tasks'));
+    app.use('/a/task', require('./a/tasks'));
 
     app.route('/:url(a|auth|components|app|bower_components|assets)/*')
       .get(function pageNotFound(req, res) {
