@@ -1,0 +1,41 @@
+.custom-height{
+  height:50px;
+}
+
+.none-border-left{
+  border-left: 0;
+  padding-left: 20px;
+}
+.none-border-right{
+  border-right: 0;
+  padding-right: 20px;
+}
+
+.task-entry-form{
+  display: flex;
+  height:50px;
+}
+
+.task-entry-name{
+  flex: 1 auto;
+  border-right: 0px;
+  outline: none;
+  height:50px;
+  border-radius: 0px;
+}
+
+.task-entry-description{
+  flex: 1 auto;
+  border-left: 0px;
+  background-color: transparent;
+}
+
+.task-entry-status{
+  flex: 1 auto;
+  height:50px;
+  border-radius: 0px;
+}
+
+.task-timer{
+  flex: 1 auto;
+}

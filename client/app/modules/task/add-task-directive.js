@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('tmtApp')
+  angular.module('tmtApp.task')
     .directive('addTask', addTask);
 
   function addTask() {
@@ -19,7 +19,7 @@
   }
 
   /* @ngInject */
-  function AddTaskController($scope) {
+  function AddTaskController() {
     var vm = this;
 
     vm.statuses = [{
@@ -35,17 +35,29 @@
     activate();
 
     function activate() {
-      vm.task = {status: vm.statuses[0]};
+      vm.task = {status: vm.statuses[0].name};
     }
 
     function add() {
+      var taskDraft = angular.copy(vm.task);
+
       vm.addHandler({
         taskData: {
-          name: vm.task.name,
-          description: vm.task.description,
-          status: vm.task.status.name
+          name: taskDraft.name,
+          description: taskDraft.description,
+          status: taskDraft.status,
+          added: new Date(),
+          finished: null
         }
       });
+
+      clear();
+    }
+
+    function clear(){
+      vm.task.name = undefined;
+      vm.task.description = '';
+      vm.status = vm.statuses[0].name;
     }
   }
 })();

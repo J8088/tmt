@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('tmtApp')
+  angular.module('tmtApp.content')
     .factory('contentFactory', contentFactory);
 
   function contentFactory($http) {

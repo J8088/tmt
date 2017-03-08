@@ -1,7 +1,7 @@
-(function(){
+(function () {
   'use strict';
 
-  angular.module('tmtApp')
+  angular.module('tmtApp.task')
     .directive('tasks', tasks);
 
   function tasks() {
@@ -19,10 +19,12 @@
     };
   }
 
-  /* @ngInject */
-  function TasksController($scope) {
+  TasksController.$inject = ['_'];
+
+  function TasksController(_) {
     var vm = this;
 
+    vm.save = save;
     vm.remove = remove;
 
     activate();
@@ -31,7 +33,11 @@
       vm.tasks = vm.taskList.items;
     }
 
-    function remove(data){
+    function save(params) {
+      console.log(params);
+    }
+
+    function remove(data) {
       vm.removeHandler({taskData: data});
     }
   }

@@ -1,0 +1,30 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <label for="taskDescription">Description</label>
+        <input type="text"
+               class="form-control"
+               id="taskDescription" name="taskDescription"
+               ng-model="vm.editData.description"
+               placeholder="Description"
+               aria-describedby="Description">
+        <label for="taskName">Name</label>
+        <input type="text"
+               class="form-control"
+               id="taskName" name="taskName"
+               ng-model="vm.editData.name"
+               placeholder="Name"
+               aria-describedby="Name">
+        <label for="taskStatus">Status</label>
+        <select class="form-control"
+                id="taskStatus" name="taskStatus"
+                ng-model="vm.status" ng-options="status.name for status in vm.statuses">
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</div>

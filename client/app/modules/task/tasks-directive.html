@@ -7,7 +7,10 @@
         <td>{{::item.status}}</td>
         <td>
             <button>
-                <span class="glyphicon glyphicon-remove" ng-click="vm.remove(item)"></span>
+                <span class="glyphicon glyphicon-trash" ng-click="vm.remove(item)"></span>
+            </button>
+            <button>
+                <span class="glyphicon glyphicon-pencil" edit-task="vm.save(params)" edit-data="item"></span>
             </button>
         </td>
     </tr>
