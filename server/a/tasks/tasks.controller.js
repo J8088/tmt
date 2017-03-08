@@ -28,6 +28,19 @@ module.exports.add = function(req, res){
   });
 };
 
+module.exports.update = function(req, res){
+  tasks.update(req.body, function (err, data) {
+    console.log('update callback ', data);
+    console.log('update callback error ', err);
+    if(err){
+      res.status(500).send();
+    }else{
+      res.status(200).send(_.merge({}, {items: data.result}));
+    }
+    res.end();
+  });
+};
+
 module.exports.delete = function(req, res){
   tasks.remove(req.body, function (err, data) {
     res.status(200).send(_.merge({}, {items: data.result}));

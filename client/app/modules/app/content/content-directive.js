@@ -23,6 +23,7 @@
 
     vm.addTask = addTask;
     vm.removeTask = removeTask;
+    vm.updateTask = updateTask;
 
 
     activate();
@@ -43,6 +44,12 @@
       contentFactory.add(taskData).then(function (data) {
         vm.content.items.push(data.items);
         formatDataArr(vm.content.items);
+      });
+    }
+
+    function updateTask(taskData) {
+      contentFactory.update(taskData).then(function (data) {
+        processContent();
       });
     }
 

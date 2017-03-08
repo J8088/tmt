@@ -10,7 +10,8 @@
       replace: true,
       scope: {
         taskList: '=',
-        removeHandler: '&onRemove'
+        removeHandler: '&onRemove',
+        updateHandler: '&onUpdate'
       },
       templateUrl: 'modules/task/tasks-directive.html',
       controller: TasksController,
@@ -34,7 +35,7 @@
     }
 
     function save(params) {
-      console.log(params);
+      vm.updateHandler({taskData: params});
     }
 
     function remove(data) {

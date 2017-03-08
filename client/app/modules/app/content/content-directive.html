@@ -9,7 +9,8 @@
 
             <tasks ng-if="vm.content.items"
                    task-list="vm.content"
-                   on-remove="vm.removeTask(taskData)"></tasks>
+                   on-remove="vm.removeTask(taskData)"
+                   on-update="vm.updateTask(taskData)"></tasks>
         </div>
     </div>
 </div>

@@ -7,6 +7,7 @@
   function contentFactory($http) {
     var service = {
       add: add,
+      update: update,
       get: getAll,
       getById: getById,
       remove: remove
@@ -15,6 +16,14 @@
 
     function add(data) {
       var url = '/a/tasks/add';
+
+      return $http.post(url, data).then(function (response) {
+        return response.data;
+      });
+    }
+
+    function update(data) {
+      var url = '/a/tasks/update';
 
       return $http.post(url, data).then(function (response) {
         return response.data;
